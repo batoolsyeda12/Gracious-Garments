@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sapphire | Gracious Garments</title>
+  <link rel="icon" href="Assets/Images/favicon-32x32.png" type="image/png">
+  <link rel="stylesheet" href="Assets/CSS/sapphire.css">
+  <link rel="stylesheet" href="Assets/CSS/style.css">
+  <link rel="stylesheet" href="Assets/CSS/gobal-animation.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  
+  <!-- Navbar (same as your site) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">Gracious Garments</a>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+          <li class="nav-item dropdown">
+            <a href="brand.html" class="nav-link dropdown-toggle">Brand</a>
+            <ul class="dropdown-menu">
+              <li><a href="outfitters.html" class="dropdown-link">Outfitters</a></li>
+              <li><a href="ethnic.html" class="dropdown-link">Ethnic</a></li>
+              <li><a href="sapphire.html" class="dropdown-link active">Sapphire</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="compar.html" class="nav-link">Compare</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="sapphire-hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Sapphire Collection</h1>
+        <p>Discover our stitched & unstitched picks for every season.</p>
+      </div>
+    </div>
+    <div class="hero-images">
+      <!-- replace the banner image with your real file -->
+      <img src="Assets/Images/sapphair/sapphire banner.png" alt="Sapphire Banner">
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="women">Women</button>
+      <button class="filter-btn" data-category="men">Men</button>
+  </div>
+
+  <!-- Cards Grid (12 cards). Order must match the JS array indexes -->
+  <section class="sapphire-cards-section">
+    <div class="sapphire-cards-grid">
+      <!-- Women 1 -->
+      <div class="sapphire-card" data-type="women" data-index="0">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/womens collections/card 1 fornt.png" alt="Embroidered Raw Silk Suit">
+          
+        </div>
+        <div class="card-info">
+          <h3>Embroidered Raw Silk Suit</h3>
+          <p class="price">PKR 20,990</p>
+          <p class="desc-short">A-Line Shirt with Trouser & Zari Organza Dupatta.</p>
+          <button class="view-details-btn">View Details</button>
+          <!-- <button class="add-to-cart-btn">Add to Cart</button> -->
+        </div>
+      </div>
+
+      <!-- Women 2 -->
+      <div class="sapphire-card" data-type="stitched" data-index="1">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/womens collections/card 2 fornt.png" alt="Printed Arabic Lawn Shirt">
+          
+        </div>
+        <div class="card-info">
+          <h3>Printed Arabic Lawn Shirt</h3>
+          <p class="price">PKR 2,490</p>
+          <p class="desc-short">Printed straight shirt with round slit neckline.</p>
+           <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Women 3 -->
+      <div class="sapphire-card" data-type="unstitched" data-index="2">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/womens collections/card 3 fornt.png" alt="Embroidered Cotton Satin Suit">
+          
+        </div>
+        <div class="card-info">
+          <h3>Embroidered Cotton Satin Suit</h3>
+          <p class="price">PKR 8,590</p>
+          <p class="desc-short">3-pc unstitched with manaar dupatta & cotton trouser.</p>
+           <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Women 4 -->
+      <div class="sapphire-card" data-type="unstitched" data-index="3">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/womens collections/card 4 fornt.png" alt="Printed Cotton Suit">
+         
+        </div>
+        <div class="card-info">
+          <h3>Printed Cotton Suit</h3>
+          <p class="price">PKR 3,490</p>
+          <p class="desc-short">Printed shirt & voile dupatta with dyed trouser.</p>
+           <button class="view-details-btn">View Details</button>
+        
+        </div>
+      </div>
+
+      <!-- Women 5 -->
+      <div class="sapphire-card" data-type="stitched" data-index="4">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/womens collections/card 5 fornt.png" alt="V-Neck Linen Blend Co-ord Sets">
+           
+        </div>
+        <div class="card-info">
+          <h3>V-Neck Linen Blend Co-ord Sets</h3>
+          <p class="price">PKR 4,490</p>
+          <p class="desc-short">V-neck shirt with button-through front, 3/4 sleeves.</p>
+          <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Women 6 -->
+      <div class="sapphire-card" data-type="stitched" data-index="5">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/womens collections/card 6 fornt.png" alt="Blended Linen Co-ord Sets">
+          
+        </div>
+        <div class="card-info">
+          <h3>Blended Linen Co-ord Sets</h3>
+          <p class="price">PKR 3,490</p>
+          <p class="desc-short">Pull-on wide-leg trousers in breathable fabric.</p>
+          <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Men 1 -->
+      <div class="sapphire-card" data-type="stitched" data-index="6">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/mens collection/card 1 fornt.png" alt="Cotton Suit">
+        
+        </div>
+        <div class="card-info">
+          <h3>Cotton Suit</h3>
+          <p class="price">PKR 2,490</p>
+          <p class="desc-short">Grey two-piece cotton suit (shirt & trouser).</p>
+           <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Men 2 -->
+      <div class="sapphire-card" data-type="stitched" data-index="7">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/mens collection/card 2 fornt.png" alt="Embroidered Oxford Blended Suit">
+        </div>
+        <div class="card-info">
+          <h3>Embroidered Oxford Blended Suit</h3>
+          <p class="price">PKR 4,490</p>
+          <p class="desc-short">Mauve suit with collar neckline & cuff sleeves.</p>
+           <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Men 3 -->
+      <div class="sapphire-card" data-type="stitched" data-index="8">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/mens collection/card 3 fornt.png" alt="Blended Wash & Wear Suit">
+        </div>
+        <div class="card-info">
+          <h3>Blended Wash & Wear Suit</h3>
+          <p class="price">PKR 3,490</p>
+          <p class="desc-short">Navy suit with band neckline, cuff sleeves.</p>
+           <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Men 4 -->
+      <div class="sapphire-card" data-type="stitched" data-index="9">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/mens collection/card 4 fornt.png" alt="Embroidered Cotton Kurta">
+        </div>
+        <div class="card-info">
+          <h3>Embroidered Cotton Kurta</h3>
+          <p class="price">PKR 2,899</p>
+          <p class="desc-short">Dark grey kurta with band neckline & invisible placket.</p>
+           <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Men 5 -->
+      <div class="sapphire-card" data-type="stitched" data-index="10">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/mens collection/card 5 fornt.png" alt="Embroidered Raw Silk Waistcoat">
+        </div>
+        <div class="card-info">
+          <h3>Embroidered Raw Silk Waistcoat</h3>
+          <p class="price">PKR 4,990</p>
+          <p class="desc-short">White raw silk waistcoat with band neckline.</p>
+          <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+
+      <!-- Men 6 -->
+      <div class="sapphire-card" data-type="stitched" data-index="11">
+        <div class="card-img">
+          <img src="Assets/Images/sapphair/mens collection/card 6 fornt.png" alt="Schiffli Embroidered Cotton Waistcoat">
+          
+        </div>
+        <div class="card-info">
+          <h3>Schiffli Embroidered Cotton Waistcoat</h3>
+          <p class="price">PKR 3,990</p>
+          <p class="desc-short">Beige schiffli waistcoat with band neckline.</p>
+          <button class="view-details-btn">View Details</button>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Modal -->
+  <div class="product-modal" id="productModal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <div class="modal-body">
+        <div class="modal-gallery" id="modalGallery"></div>
+        <div class="modal-details">
+          <h2 id="modalTitle"></h2>
+          <p id="modalPrice"></p>
+          <p id="modalDesc"></p>
+          <div id="modalSpecs"></div>
+          <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 1rem; margin-top: 0;">Add to Cart</button>
+          <div class="modal-reviews-section">
+            <h3>Reviews</h3>
+            <ul class="reviews-list" id="reviewsList"></ul>
+            <form class="review-form" id="reviewForm">
+              <h4>Leave a Review</h4>
+              <input type="text" id="reviewName" placeholder="Your name" required>
+              <textarea id="reviewText" placeholder="Your review" required></textarea>
+              <select id="reviewRating" required>
+                <option value="">Rating</option>
+                <option value="5">★★★★★</option>
+                <option value="4">★★★★☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="1">★☆☆☆☆</option>
+              </select>
+              <button type="submit">Submit Review</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (copied from your Ethnic) -->
+  <footer class="site-footer">
+    <div class="footer-container-fluid px-0">
+      <div class="footer-row mx-0">
+        <div class="footer-column">
+          <h3>CUSTOMER CARE</h3>
+          <ul>
+            <li>Shipping & Handling</li>
+            <li>Exchange Policy</li>
+            <li>Order Cancellation Policy</li>
+            <li>Privacy Policy</li>
+            <li>Terms of Use</li>
+            <li>FAQ's</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>INFORMATION</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> 3rd Floor, Rimm Jhim Shopping Center, Suit No 308...</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:bkhmad12@gmail.com">bkhmad12@gmail.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:02134980576">02134980576</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="Assets/JavaScript/sapphire.js"></script>
+  <script src="Assets/JavaScript/main-fixed.js"></script>
+  <script src="Assets/JavaScript/animation.js"></script>
+  
+</body>
+</html>

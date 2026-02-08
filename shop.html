@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Gracious Garments</title>
+    <link rel="icon" href="Assets/Images/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="Assets/CSS/shope.css">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/gobal-animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 99999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(3px);
+    }
+    .modal-content {
+        background: #fff;
+        margin: 2% auto;
+        border-radius: 16px;
+        max-width: 800px;
+        width: 95%;
+        padding: 0;
+        position: relative;
+        z-index: 100000;
+        animation: popin 0.36s;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+    @keyframes popin {
+        0% { transform: scale(0.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2rem;
+        color: #333;
+        cursor: pointer;
+        transition: color 0.2s;
+        z-index: 100001;
+        background: rgba(255,255,255,0.9);
+        border-radius: 0%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .close:hover {
+        color: #555;
+        background: rgba(255,255,255,1);
+        transform: scale(1.1);
+    }
+    .modal-body {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        align-items: stretch;
+    }
+    .modal-body img {
+        width: 330px;
+        height: 100%;
+        max-height: 420px;
+        object-fit: cover;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+        margin: 0;
+        display: block;
+        background: #faf7f6;
+    }
+    .modal-details {
+        flex: 1 1 0;
+        padding: 2.2rem 2rem 2rem 2rem;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .modal-details h2 {
+        font-size: 2.1rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #222;
+        position: relative;
+        z-index: 100002;
+    }
+    .modal-details h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+        color: #333;
+    }
+    .modal-details p {
+        margin-bottom: 1rem;
+        font-size: 1.12rem;
+        line-height: 1.5;
+        color: #555;
+    }
+    .color-options, .size-options {
+        margin: 1rem 0;
+    }
+    .color-options h4, .size-options h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 0.5rem;
+    }
+    .add-to-cart-btn, .shop-now-btn {
+        margin-top: 2.6rem;
+        padding: 0.7rem 0;
+        width: 90%;
+        border: none;
+        background: #3a2921;
+        color: #fff;
+        border-radius: 32px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        cursor: pointer;
+        align-self: center;
+        transition: background 0.2s, transform 0.2s;
+    }
+    .add-to-cart-btn:hover, .shop-now-btn:hover {
+        background: #5a3a2d;
+        transform: translateY(-2px);
+    }
+    
+    /* Ensure navbar doesn't overlap modal */
+    .navbar {
+        z-index: 1000;
+    }
+    
+    @media (max-width: 900px) {
+        .modal-content { 
+            max-width: 95vw; 
+            margin: 5% auto;
+        }
+        .modal-body img { width: 45vw; }
+    }
+    @media (max-width: 700px) {
+        .modal-content {
+            margin: 10% auto;
+            width: 98%;
+        }
+        .modal-body { 
+            flex-direction: column; 
+        }
+        .modal-body img {
+            width: 100%;
+            height: 250px;
+            max-height: 250px;
+            border-radius: 16px 16px 0 0;
+        }
+        .modal-details { 
+            padding: 1.5rem 1.2rem 1.2rem 1.2rem; 
+        }
+        .modal-details h2 {
+            font-size: 1.8rem;
+        }
+        .close {
+            top: 10px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .modal-content {
+            margin: 15% auto;
+            width: 98%;
+            border-radius: 12px;
+        }
+        .modal-details {
+            padding: 1rem;
+        }
+        .modal-details h2 {
+            font-size: 1.6rem;
+        }
+    }
+   </style>
+</head>
+<body>
+    <!-- Navbar (Copied from homepage) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Gracious Garments</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shop.html" class="nav-link active">Shop</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="brand.html" class="nav-link dropdown-toggle">Brand</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="outfitters.html" class="dropdown-link">Outfitters</a></li>
+                            <li><a href="ethnic.html" class="dropdown-link">Ethnic</a></li>
+                            <li><a href="sapphair.html" class="dropdown-link">Sapphire</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="compar.html" class="nav-link">Compare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="shop-main">
+        <!-- ETHNIC SECTION -->
+        <section class="brand-section" id="ethnic-section">
+            <div class="brand-header">
+                <h2>Ethnic</h2>
+                <div class="filter-group">
+                    <label for="ethnic-filter">Filter:</label>
+                    <select id="ethnic-filter" class="brand-filter">
+                        <option value="all">All</option>
+                        <option value="stitched">Womens Stitched</option>
+                        <option value="unstitched">Womens Unstitched</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cards-container" id="ethnic-cards">
+                <!-- 3 Stitched Cards -->
+                <div class="shop-card ethnic stitched" onclick="openShopModal('e1')">
+                    <img src="Assets/Images/Shop/ethnic/ethnic s card 1.png" alt="Ethnic Stitched 1">
+                    <div class="shop-card-content">
+                        <h3>Classic Embroidered Suit</h3>
+                        <p>PKR 7,500</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card ethnic stitched" onclick="openShopModal('e2')">
+                    <img src="Assets/Images/Shop/ethnic/ethnic s card 2.png" alt="Ethnic Stitched 2">
+                    <div class="shop-card-content">
+                        <h3>Stitched Embroidered Suit</h3>
+                        <p>PKR 9,090</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card ethnic stitched" onclick="openShopModal('e3')">
+                    <img src="Assets/Images/Shop/ethnic/ethnic s card 3.png" alt="Ethnic Stitched 3">
+                    <div class="shop-card-content">
+                        <h3>Stitched Classic Embroidered Suit</h3>
+                        <p>PKR 10,800</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <!-- 3 Unstitched Cards -->
+                <div class="shop-card ethnic unstitched" onclick="openShopModal('e4')">
+                    <img src="Assets/Images/Shop/ethnic/ethnic un card 1.png" alt="Ethnic Unstitched 1">
+                    <div class="shop-card-content">
+                        <h3>Unstitched Embroidered Suit</h3>
+                        <p>PKR 9,690</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card ethnic unstitched" onclick="openShopModal('e5')">
+                    <img src="Assets/Images/Shop/ethnic/dethnic un card2.png" alt="Ethnic Unstitched 2">
+                    <div class="shop-card-content">
+                        <h3>Printed Unstitched Suit</h3>
+                        <p>PKR 3,950</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card ethnic unstitched" onclick="openShopModal('e6')">
+                    <img src="Assets/Images/Shop/ethnic/ethnic un card 3.png" alt="Ethnic Unstitched 3">
+                    <div class="shop-card-content">
+                        <h3>Unstitched Embroidered Suit</h3>
+                        <p>PKR 4,900</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sapphire Section -->
+        <section class="brand-section" id="sapphire-section">
+            <div class="brand-header">
+                <h2>Sapphire</h2>
+                <div class="filter-group">
+                    <label for="sapphire-filter">Filter:</label>
+                    <select id="sapphire-filter" class="brand-filter">
+                        <option value="all">All</option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cards-container" id="sapphire-cards">
+                <!-- 3 Women Cards -->
+                <div class="shop-card sapphire women" onclick="openShopModal('s1')">
+                    <img src="Assets/Images/Shop/sapphari/sapphir-women-un-card-1.png" alt="Sapphire Women 1">
+                    <div class="shop-card-content">
+                        <h3>Unstitched Luxury Lawn Suit</h3>
+                        <p>PKR 8,200</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card sapphire women" onclick="openShopModal('s2')">
+                    <img src="Assets/Images/Shop/sapphari/sapphir-women-un-card-2.png" alt="Sapphire Women 2">
+                    <div class="shop-card-content">
+                        <h3>Stitched Printed Lawn Viscose Shirt</h3>
+                        <p>PKR 11,000</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card sapphire women" onclick="openShopModal('s3')">
+                    <img src="Assets/Images/Shop/sapphari/sapphir-women-un-card-3.png" alt="Sapphire Women 3">
+                    <div class="shop-card-content">
+                        <h3>Striped Cropped T-Shirt</h3>
+                        <p>PKR 1,500</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <!-- 3 Men Cards -->
+                <div class="shop-card sapphire men" onclick="openShopModal('s4')">
+                    <img src="Assets/Images/Shop/sapphari/men un card 1.jpg" alt="Sapphire Men 1">
+                    <div class="shop-card-content">
+                        <h3>Unstitched Cotton Dobby Suit</h3>
+                        <p>PKR 4,700</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card sapphire men" onclick="openShopModal('s5')">
+                    <img src="Assets/Images/Shop/sapphari/men w card 2.jpg" alt="Sapphire Men 2">
+                    <div class="shop-card-content">
+                        <h3>Formal Waistcoat</h3>
+                        <p>PKR 6,300</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card sapphire men" onclick="openShopModal('s6')">
+                    <img src="Assets/Images/Shop/sapphari/men s card 3.jpg" alt="Sapphire Men 3">
+                    <div class="shop-card-content">
+                        <h3>Blended Wash & Wear Suit</h3>
+                        <p>PKR 7,200</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outfitters Section -->
+        <section class="brand-section" id="outfitters-section">
+            <div class="brand-header">
+                <h2>Outfitters</h2>
+                <div class="filter-group">
+                    <label for="outfitters-filter">Filter:</label>
+                    <select id="outfitters-filter" class="brand-filter">
+                        <option value="all">All</option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cards-container" id="outfitters-cards">
+                <!-- 3 Men Cards -->
+                <div class="shop-card outfitters men" onclick="openShopModal('o1')">
+                    <img src="Assets/Images/Shop/outfitters/out polo men card 1.png" alt="Outfitters Men 1">
+                    <div class="shop-card-content">
+                        <h3>Polo T-Shirt</h3>
+                        <p>PKR 1800</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card outfitters men" onclick="openShopModal('o2')">
+                    <img src="Assets/Images/Shop/outfitters/out t-shirt card 2.png" alt="Outfitters Men 2">
+                    <div class="shop-card-content">
+                        <h3>Casual T-Shirt</h3>
+                        <p>PKR 2700</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card outfitters men" onclick="openShopModal('o3')">
+                    <img src="Assets/Images/Shop/outfitters/out trouser card 3.png" alt="Outfitters Men 3">
+                    <div class="shop-card-content">
+                        <h3>Slim Fit Trouser</h3>
+                        <p>PKR 3,999</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <!-- 3 Women Cards -->
+                <div class="shop-card outfitters women" onclick="openShopModal('o4')">
+                    <img src="Assets/Images/Shop/outfitters/out women t shirt card 1.png" alt="Outfitters Women 1">
+                    <div class="shop-card-content">
+                        <h3>Cropped Wide Hem Shirt</h3>
+                        <p>PKR 2500</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card outfitters women" onclick="openShopModal('o5')">
+                    <img src="Assets/Images/Shop/outfitters/out women jumpsuit card 2.png" alt="Outfitters Women 2">
+                    <div class="shop-card-content">
+                        <h3>Basic Belted Jumpsuit</h3>
+                        <p>PKR 8,450</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="shop-card outfitters women" onclick="openShopModal('o6')">
+                    <img src="Assets/Images/Shop/outfitters/women jeans card 3.png" alt="Outfitters Women 3">
+                    <div class="shop-card-content">
+                        <h3>Women Jeans </h3>
+                        <p>PKR 4,500</p>
+                        <button class="view-detail-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals for each product (STATIC) -->
+
+    <!-- ETHNIC Modals -->
+    <div id="shopModal-e1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('e1')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/ethnic/ethnic s card 1.png" alt="Classic Embroidered Suit">
+                <div class="modal-details">
+                    <h2>Classic Embroidered Suit</h2>
+                    <p>PKR 7,500</p>
+                    <p>A beautiful 3-piece stitched suit with elegant embroidery. Breathable lawn fabric perfect for summer.</p>
+                    <div class="color-options">
+                        <h4>Colors: Peach, White, Blue</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-e2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('e2')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/ethnic/ethnic s card 2.png" alt="Stitched Embroidered Suit">
+                <div class="modal-details">
+                    <h2>Stitched Embroidered Suit</h2>
+                    <p>PKR 9,090</p>
+                    <p>Elegant stitched suit with detailed embroidery, ideal for festive occasions. Soft cotton blend.</p>
+                    <div class="color-options">
+                        <h4>Colors: Pink, Yellow, Beige</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-e3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('e3')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/ethnic/ethnic s card 3.png" alt="Stitched Classic Embroidered Suit">
+                <div class="modal-details">
+                    <h2>Stitched Classic Embroidered Suit</h2>
+                    <p>PKR 10,800</p>
+                    <p>Classic design stitched suit with traditional motifs. Perfect for formal gatherings.</p>
+                    <div class="color-options">
+                        <h4>Colors: Blue, Red</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-e4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('e4')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/ethnic/ethnic un card 1.png" alt="Unstitched Embroidered Suit">
+                <div class="modal-details">
+                    <h2>Unstitched Embroidered Suit</h2>
+                    <p>PKR 9,690</p>
+                    <p>Unstitched embroidered fabric set for custom tailoring. Includes matching dupatta.</p>
+                    <div class="color-options">
+                        <h4>Colors: Green, White, Pink</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: Unstitched</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-e5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('e5')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/ethnic/dethnic un card2.png" alt="Printed Unstitched Suit">
+                <div class="modal-details">
+                    <h2>Printed Unstitched Suit</h2>
+                    <p>PKR 3,950</p>
+                    <p>Premium unstitched lawn with block print. Includes printed dupatta.</p>
+                    <div class="color-options">
+                        <h4>Colors: Purple, Yellow</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: Unstitched</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-e6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('e6')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/ethnic/ethnic un card 3.png" alt="Unstitched Embroidered Suit">
+                <div class="modal-details">
+                    <h2>Unstitched Embroidered Suit</h2>
+                    <p>PKR 4,900</p>
+                    <p>Unstitched lawn suit with embroidered chiffon dupatta for a luxury look.</p>
+                    <div class="color-options">
+                        <h4>Colors: Black, Maroon</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: Unstitched</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAPPHIRE Modals -->
+    <div id="shopModal-s1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('s1')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/sapphari/sapphir-women-un-card-1.png" alt="Unstitched Luxury Lawn Suit">
+                <div class="modal-details">
+                    <h2>Unstitched Luxury Lawn Suit</h2>
+                    <p>PKR 8,200</p>
+                    <p>High-end unstitched lawn suit with luxury embroidery for women.</p>
+                    <div class="color-options">
+                        <h4>Colors: Teal, White, Pink</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: Unstitched</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-s2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('s2')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/sapphari/sapphir-women-un-card-2.png" alt="Stitched Printed Lawn Viscose Shirt">
+                <div class="modal-details">
+                    <h2>Stitched Printed Lawn Viscose Shirt</h2>
+                    <p>PKR 11,000</p>
+                    <p>Ready-to-wear stitched viscose shirt with vibrant print.</p>
+                    <div class="color-options">
+                        <h4>Colors: Navy, Gold</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-s3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('s3')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/sapphari/sapphir-women-un-card-3.png" alt="Striped Cropped T-Shirt">
+                <div class="modal-details">
+                    <h2>Striped Cropped T-Shirt</h2>
+                    <p>PKR 1,500</p>
+                    <p>Trendy cropped t-shirt with bold stripes for a youthful look.</p>
+                    <div class="color-options">
+                        <h4>Colors: Yellow, Pink</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-s4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('s4')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/sapphari/men un card 1.jpg" alt="Unstitched Cotton Dobby Suit">
+                <div class="modal-details">
+                    <h2>Unstitched Cotton Dobby Suit</h2>
+                    <p>PKR 4,700</p>
+                    <p>Unstitched men's cotton dobby suit, soft and comfortable for all seasons.</p>
+                    <div class="color-options">
+                        <h4>Colors: White, Black, Sky Blue</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: Unstitched</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-s5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('s5')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/sapphari/men w card 2.jpg" alt="Formal Waistcoat">
+                <div class="modal-details">
+                    <h2>Formal Waistcoat</h2>
+                    <p>PKR 6,300</p>
+                    <p>Formal men's waistcoat, ideal for special occasions.</p>
+                    <div class="color-options">
+                        <h4>Colors: Black, Grey</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-s6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('s6')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/sapphari/men s card 3.jpg" alt="Blended Wash & Wear Suit">
+                <div class="modal-details">
+                    <h2>Blended Wash & Wear Suit</h2>
+                    <p>PKR 7,200</p>
+                    <p>Blended fabric suit for men, easy wash and wear, crease resistant.</p>
+                    <div class="color-options">
+                        <h4>Colors: Cream, Blue</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUTFITTERS Modals -->
+    <div id="shopModal-o1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('o1')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/outfitters/out polo men card 1.png" alt="Polo T-Shirt">
+                <div class="modal-details">
+                    <h2>Polo T-Shirt</h2>
+                    <p>PKR 1800</p>
+                    <p>Trendy polo t-shirt for men, soft jersey fabric, casual fit.</p>
+                    <div class="color-options">
+                        <h4>Colors: Blue, Black</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-o2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('o2')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/outfitters/out t-shirt card 2.png" alt="Casual T-Shirt">
+                <div class="modal-details">
+                    <h2>Casual T-Shirt</h2>
+                    <p>PKR 2700</p>
+                    <p>Everyday t-shirt with modern print. Great for daily wear.</p>
+                    <div class="color-options">
+                        <h4>Colors: Red, White, Navy</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-o3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('o3')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/outfitters/out trouser card 3.png" alt="Slim Fit Trouser">
+                <div class="modal-details">
+                    <h2>Slim Fit Trouser</h2>
+                    <p>PKR 3,999</p>
+                    <p>Slim fit trousers for men, stretchable and comfortable.</p>
+                    <div class="color-options">
+                        <h4>Colors: Blue, Grey</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: 30, 32, 34, 36</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-o4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('o4')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/outfitters/out women t shirt card 1.png" alt="Cropped Wide Hem Shirt">
+                <div class="modal-details">
+                    <h2>Cropped Wide Hem Shirt</h2>
+                    <p>PKR 2500</p>
+                    <p>Fashionable cropped shirt for women, wide hem, soft cotton.</p>
+                    <div class="color-options">
+                        <h4>Colors: Pink, Green</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-o5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('o5')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/outfitters/out women jumpsuit card 2.png" alt="Basic Belted Jumpsuit">
+                <div class="modal-details">
+                    <h2>Basic Belted Jumpsuit</h2>
+                    <p>PKR 8,450</p>
+                    <p>Chic belted jumpsuit for women, easy to style and wear.</p>
+                    <div class="color-options">
+                        <h4>Colors: Yellow, Blue</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L, XL</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopModal-o6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShopModal('o6')">&times;</span>
+            <div class="modal-body">
+                <img src="Assets/Images/Shop/outfitters/women jeans card 3.png" alt="Women Jeans">
+                <div class="modal-details">
+                    <h2>Women Jeans</h2>
+                    <p>PKR 4,500</p>
+                    <p>Trendy women’s jeans, high-rise, skinny fit, stretchable denim.</p>
+                    <div class="color-options">
+                        <h4>Colors: White, Beige, Black</h4>
+                    </div>
+                    <div class="size-options">
+                        <h4>Size: S, M, L</h4>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of all product modals -->
+
+    <!-- Footer (Copied from homepage) -->
+    <footer class="site-footer">
+        <div class="footer-container-fluid px-0">
+            <div class="footer-row mx-0">
+                <div class="footer-column">
+                    <h3>CUSTOMER CARE</h3>
+                    <ul>
+                        <li>Shipping & Handling</li>
+                        <li>Exchange Policy</li>
+                        <li>Order Cancellation Policy</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                        <li>FAQ's</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>INFORMATION</h3>
+                    <ul>
+                        <li><a href="index.html" target="_blank" rel="noopener noreferrer">Home</a></li>
+                        <li><a href="about.html" target="_blank" rel="noopener noreferrer">About us</a></li>
+                        <li><a href="contact.html" target="_blank" rel="noopener noreferrer">Contact us</a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 3rd Floor, Rimm Jhim Shopping Center, Suit No 308, A-486 Allama Shabbir Ahmed Usmani Rd, Block 6
+                    Gulshan-e-Iqbal,<br>
+                    Karachi,</li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:bkhmad12@gmail.com">bkhmad12@gmail.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:02134980576">02134980576</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="Assets/JavaScript/main-fixed.js"></script>
+    <script>
+        function openShopModal(id) {
+            document.getElementById('shopModal-' + id).style.display = 'block';
+        }
+        function closeShopModal(id) {
+            document.getElementById('shopModal-' + id).style.display = 'none';
+        }
+        window.onclick = function(event) {
+            document.querySelectorAll('.modal').forEach(function(modal){
+                if (event.target === modal) modal.style.display = 'none';
+            });
+        };
+        // Mobile navbar toggle
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     const navToggle = document.getElementById('nav-toggle');
+        //     const navMenu = document.getElementById('nav-menu');
+        //     if (navToggle && navMenu) {
+        //         navToggle.onclick = () => {
+        //             navMenu.classList.toggle('active');
+        //             navToggle.classList.toggle('active');
+        //         };
+        //     }
+            // Filter functionality
+            function handleFilter(section, filter) {
+                const cards = document.querySelectorAll(`#${section}-cards .shop-card`);
+                cards.forEach(card => {
+                    let show = false;
+                    if (filter === "all") show = true;
+                    else if (section === "ethnic") {
+                        if ((filter === "stitched" && card.classList.contains('stitched')) ||
+                            (filter === "unstitched" && card.classList.contains('unstitched'))) show = true;
+                    } else if (section === "sapphire" || section === "outfitters") {
+                        if (card.classList.contains(filter)) show = true;
+                    }
+                    card.style.display = show ? "flex" : "none";
+                });
+            }
+            const ethnicFilter = document.getElementById("ethnic-filter");
+            if (ethnicFilter) {
+                ethnicFilter.addEventListener("change", function (e) {
+                    handleFilter("ethnic", e.target.value);
+                });
+            }
+            const sapphireFilter = document.getElementById("sapphire-filter");
+            if (sapphireFilter) {
+                sapphireFilter.addEventListener("change", function (e) {
+                    handleFilter("sapphire", e.target.value);
+                });
+            }
+            const outfittersFilter = document.getElementById("outfitters-filter");
+            if (outfittersFilter) {
+                outfittersFilter.addEventListener("change", function (e) {
+                    handleFilter("outfitters", e.target.value);
+                });
+            }
+            // On load, show all cards
+            handleFilter("ethnic", "all");
+            handleFilter("sapphire", "all");
+            handleFilter("outfitters", "all");
+        ;
+    </script>
+    
+    <script src="Assets/JavaScript/main-fixed.js"></script>
+    <script src="Assets/JavaScript/animation.js"></script>
+</body>
+</html>

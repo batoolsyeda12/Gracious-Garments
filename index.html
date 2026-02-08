@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracious Garments</title>
+    <link rel="icon" href="Assets/Images/favicon-32x32.png"
+        type="image/png">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/gobal-animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Gracious Garments</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shop.html" class="nav-link">Shop</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="brand.html" class="nav-link dropdown-toggle">Brand</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="outfitters.html" class="dropdown-link">Outfitters</a></li>
+                            <li><a href="ethnic.html" class="dropdown-link">Ethnic</a></li>
+                            <li><a href="sapphair.html" class="dropdown-link">Sapphire</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="compar.html" class="nav-link">Compare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact Us</a>
+                    </li>
+                     <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+        
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main>
+        <!-- Slider Section -->
+        <section class="slider">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="Assets/Images/hero 1.png" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="Assets/Images/hero 2.png" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="Assets/Images/hero 3.png" alt="Slide 3">
+                </div>
+                <div class="slide">
+                    <img src="Assets/Images/hero 4.png" alt="Slide 4">
+                </div>
+                <div class="slide">
+                    <img src="Assets/Images/hero 5.png" alt="Slide 5">
+                </div>
+                <div class="slide">
+                    <img src="Assets/Images/hero 6.png" alt="Slide 6">
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="prev" id="prev">&#10094;</button>
+                <button class="next" id="next">&#10095;</button>
+            </div>
+            <div class="slider-dots" id="slider-dots"></div>
+        </section>
+
+        <!-- Shop By Category Section -->
+        <section class="shop-by-category">
+            <h2>Shop By Category</h2>
+            <div class="category-cards">
+                <div class="category-card">
+                    <img src="Assets/Images/women.png" alt="Women Collection">
+                    <h3>Womens Collection</h3>
+                    <p>Up to 50% off</p>
+                    
+                    <a href="shop.html" class="shop-now-btn">Shop Now</a>
+                </div>
+                <div class="category-card">
+                    <img src="Assets/Images/men.png" alt="Men Collection">
+                    <h3>Mens Collection</h3>
+                    <p>Up to 50% off</p>
+                    <a href="shop.html" class="shop-now-btn">Shop Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrival Section -->
+        <section class="new-arrival">
+            <h2> MEN'S NEW ARRIVAL</h2>
+            <div class="arrival-cards-row row-1">
+                <!-- Card 1  Mens -->
+                <div class="arrival-card card-theme-1" data-product="1">
+                    <img src="Assets/Images/N card 1.png" alt="Green Textured Polo Shirt">
+                    <div class="card-content">
+                        <h3>Green Textured Polo Shirt</h3>
+                        <p class="price">PKR 4,490</p>
+                        <div class="color-indicators">
+                          
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="arrival-card card-theme-2" data-product="2">
+                    <img src="Assets/Images/N card 2.png" alt="Basic Shirt">
+                    <div class="card-content">
+                        <h3>Basic Shirt</h3>
+                        <p class="price">PKR 5,990</p>
+                        <div class="color-indicators">
+                          
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="arrival-card card-theme-3" data-product="3">
+                    <img src="Assets/Images/N card 3.png" alt="Carpenter Relaxed Jeans">
+                    <div class="card-content">
+                        <h3>Carpenter Relaxed Jeans</h3>
+                        <p class="price">PKR 6,490</p>
+                        <div class="color-indicators">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrival-cards-row row-2">
+                <!-- Card 4 -->
+                <div class="arrival-card card-theme-4" data-product="4">
+                    <img src="Assets/Images/N card 4.png" alt="Marvel Shalwar Kameez">
+                    <div class="card-content">
+                        <h3>Marvel Shalwar Kameez</h3>
+                        <p class="price">PKR 4,490</p>
+                        <div class="color-indicators">
+                          
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="arrival-card card-theme-5" data-product="5">
+                    <img src="Assets/Images/N card 5.png" alt="Jade-PC Shalwar Kameez">
+                    <div class="card-content">
+                        <h3>Jade-PC Shalwar Kameez</h3>
+                        <p class="price">PKR 3,990</p>
+                        <div class="color-indicators">
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Modal 1 -->
+        <div id="productModal1" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/n card (1).png" alt="Green Textured Polo Shirt">
+                    <div class="modal-details">
+                        <h2>Green Textured Polo Shirt</h2>
+                        <p>PKR 4,490</p>
+                        <p>Elevate your casual game with our Textured Polo Shirt! This regular-fit Johnny collar polo
+                            adds a touch of personality to your everyday style.</p>
+                        <div class="color-options">
+                            <h4>Colors : Green Off White Black</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL XXL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Modal 2 -->
+        <div id="productModal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/n card (2).png" alt="Basic Shirt">
+                    <div class="modal-details">
+                        <h2>Basic Shirt</h2>
+                        <p>PKR 5,990</p>
+                        <p>Introducing our Basic Shirt with Flap Patch Pocket - the perfect addition to any wardrobe.
+                        </p>
+                        <div class="color-options">
+                            <h4>Colors : Blue White Gray</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Modal 3 -->
+        <div id="productModal3" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/n card (3).png" alt="Carpenter Relaxed Jeans">
+                    <div class="modal-details">
+                        <h2>Carpenter Relaxed Jeans</h2>
+                        <p>PKR 6,490</p>
+                        <p>Step into comfort and style with our Carpenter Relaxed Jeans. Designed for a laid-back vibe.
+                        </p>
+                        <div class="color-options">
+                            <h4>Colors : Navy Gray</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: 28 30 32 34 36</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Modal 4 -->
+        <div id="productModal4" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/n card (4).png" alt="Marvel Shalwar Kameez">
+                    <div class="modal-details">
+                        <h2>Marvel Shalwar Kameez</h2>
+                        <p>PKR 4,490</p>
+                        <p>This Marvel-PC Shalwar Kameez combines traditional Eastern wear with modern blended fabric.
+                        </p>
+                        <div class="color-options">
+                            <h4>Colors : Black White Brown</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Modal 5 -->
+        <div id="productModal5" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/n card (5).png" alt="Jade-PC Shalwar Kameez">
+                    <div class="modal-details">
+                        <h2>Jade-PC Shalwar Kameez</h2>
+                        <p>PKR 3,990</p>
+                        <p>This Jade-PC Shalwar Kameez in dark blue offers a refined blend of comfort and tradition.</p>
+                        <div class="color-options">
+                            <h4>Colors : Navy White</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Womens New Arrival Section -->
+        <section class="womens-new-arrival">
+            <h2>WOMEN'S NEW ARRIVAL</h2>
+            <div class="arrival-cards-row row-1">
+                <!-- Card 1 -->
+                <div class="arrival-card" data-product="1" onclick="openWomensModal(1)">
+                    <img src="Assets/Images/w card 1.png" alt="EMBROIDERED TOP">
+                    <div class="card-content">
+                        <h3>EMBROIDERED TOP</h3>
+                        <p class="price">PKR 6,990</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="arrival-card" data-product="2" onclick="openWomensModal(2)">
+                    <img src="Assets/Images/w card 2.png" alt="EMBROIDERED SUIT">
+                    <div class="card-content">
+                        <h3>EMBROIDERED SUIT</h3>
+                        <p class="price">PKR 7,990</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="arrival-card" data-product="3" onclick="openWomensModal(3)">
+                    <img src="Assets/Images/w card 3.png" alt="Embroidered Arabic Lawn Shirt">
+                    <div class="card-content">
+                        <h3>Embroidered Arabic Lawn Shirt</h3>
+                        <p class="price">PKR 6,490</p>
+                    </div>
+                </div>
+            </div>
+            <div class="arrival-cards-row row-2">
+                <!-- Card 4 -->
+                <div class="arrival-card" data-product="4" onclick="openWomensModal(4)">
+                    <img src="Assets/Images/w card 4.png" alt="Linen Blend Trousers">
+                    <div class="card-content">
+                        <h3>Linen Blend Trousers</h3>
+                        <p class="price">PKR 3,490</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="arrival-card" data-product="5" onclick="openWomensModal(5)">
+                    <img src="Assets/Images/w card 5.png" alt="Basic T-shirt">
+                    <div class="card-content">
+                        <h3>Basic T-shirt</h3>
+                        <p class="price">PKR 1,890</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Modal 1 - Womens -->
+        <div id="womensModal1" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/w card(1).png" alt="EMBROIDERED TOP">
+                    <div class="modal-details">
+                        <h2>EMBROIDERED TOP</h2>
+                        <p>PKR 6,990</p>
+                        <p>Elegant embroidered top perfect for any occasion. Features intricate embroidery work and
+                            comfortable fabric.</p>
+                        <div class="color-options">
+                            <h4>Colors: White, Black, Navy</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>A
+        </div>
+
+        <!-- Product Modal 2 - Womens -->
+        <div id="womensModal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/w card (2).png" alt="EMBROIDERED SUIT">
+                    <div class="modal-details">
+                        <h2>EMBROIDERED SUIT</h2>
+                        <p>PKR 7,990</p>
+                        <p>Beautiful embroidered suit set with matching dupatta. Perfect for formal events and
+                            celebrations.</p>
+                        <div class="color-options">
+                            <h4>Colors: Pink, Blue, Green</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL XXL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Modal 3 - Womens -->
+        <div id="womensModal3" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/w card (3).png" alt="Embroidered Arabic Lawn Shirt">
+                    <div class="modal-details">
+                        <h2>Embroidered Arabic Lawn Shirt</h2>
+                        <p>PKR 6,490</p>
+                        <p>Stylish Arabic-inspired embroidered lawn shirt with intricate patterns and premium quality
+                            fabric.</p>
+                        <div class="color-options">
+                            <h4>Colors: White, Beige, Peach</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Modal 4 - Womens -->
+        <div id="womensModal4" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/w card (4).png" alt="Linen Blend Trousers">
+                    <div class="modal-details">
+                        <h2>Linen Blend Trousers</h2>
+                        <p>PKR 3,490</p>
+                        <p>Comfortable linen blend trousers perfect for everyday wear. Features a relaxed fit and
+                            breathable fabric.</p>
+                        <div class="color-options">
+                            <h4>Colors: Black, White, Khaki</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Modal 5 - Womens -->
+        <div id="womensModal5" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <img src="Assets/Images/w card (5).png" alt="Basic T-shirt">
+                    <div class="modal-details">
+                        <h2>Basic T-shirt</h2>
+                        <p>PKR 1,890</p>
+                        <p>Essential basic t-shirt made from soft cotton. Perfect for layering or wearing alone.</p>
+                        <div class="color-options">
+                            <h4>Colors: White, Black, Gray, Navy</h4>
+                        </div>
+                        <div class="size-options">
+                            <h4>Size: S M L XL XXL</h4>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Discount Banner Section -->
+        <section class="discount-banner">
+            <a href="Assets/price_list (1).docx" download class="download-btn">&#8681; Download</a>
+        </section>
+
+
+
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <div class="container">
+                <h2 class="section-title">OUR BLOGS</h2>
+                <div class="blog-cards">
+                    <!-- Blog Card 1 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="Assets/Images/blog 1.png" alt="Fashion Trends 2024">
+                        </div>
+                        <div class="blog-content">
+                            <h3>Ethnic</h3>
+                            <p class="blog-excerpt">A Perfect Blend of Tradition and Trend...</p>
+                            <button class="read-more-btn" onclick="toggleBlog(this)">Read More</button>
+                            <div class="blog-description">
+                                <p>
+                                    Ethnic by Outfitters has mastered the art of combining traditional eastern wear with
+                                    modern design aesthetics. Whether it’s elegant embroidered kurtas, trendy fusion
+                                    tops, or festive collections, Ethnic has something for every occasion.:</p>
+                                <ul>
+                                    <li>Beautiful prints and embroidery</li>
+                                    <li>A mix of casual and festive wear</li>
+                                    <li>Bold color combinations and patterns</li>
+                                    <li>Fusion designs for a modern yet cultural look</li>
+                                </ul>
+                                <p>Ethnic is the go-to brand for people who love wearing eastern outfits with a trendy
+                                    touch.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 2 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="Assets/Images/blog 2.png" alt="Styling Tips">
+                        </div>
+                        <div class="blog-content">
+                            <h3>Sapphire</h3>
+                            <p class="blog-excerpt">Quality Meets Elegance...</p>
+                            <button class="read-more-btn" onclick="toggleBlog(this)">Read More</button>
+                            <div class="blog-description">
+                                <p>Sapphire is known for its premium fabrics and elegant designs, especially its famous
+                                    lawn and luxury pret collections. Their unstitched fabrics are popular for their
+                                    exceptional quality and timeless patterns, while their ready-to-wear collections
+                                    offer sophistication with a modern twist.:</p>
+                                <ul>
+                                    <li>High-quality fabrics and stitching</li>
+                                    <li>Elegant and classic eastern designs</li>
+                                    <li>A wide variety of seasonal collections</li>
+                                    <li>Mix high and low pieces for balanced looks</li>
+                                </ul>
+                                <p>For people who love luxury and classic eastern fashion, Sapphire is the ultimate
+                                    choice.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 3 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="Assets/Images/blog 3.png" alt="Sustainable Fashion">
+                        </div>
+                        <div class="blog-content">
+                            <h3>Outfitters</h3>
+                            <p class="blog-excerpt">Everyday Casual and Western Fashion...</p>
+                            <button class="read-more-btn" onclick="toggleBlog(this)">Read More</button>
+                            <div class="blog-description">
+                                <p>Outfitters has become a youth icon for western wear in Pakistan. From street-style
+                                    denim and jackets to trendy tops and accessories, Outfitters brings global fashion
+                                    trends to local markets at affordable prices.:</p>
+                                <ul>
+                                    <li>Perfect for daily casual wear and outings</li>
+                                    <li>Young, bold, and trendy designs</li>
+                                    <li>A wide range of clothing for both men and women</li>
+                                    <li>Local production reducing carbon footprints</li>
+                                </ul>
+                                <p>If you’re looking for modern and stylish everyday wear, Outfitters is your perfect
+                                    match.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Newsletter Subscription Section -->
+            <section class="newsletter-subscription">
+                <h2>NEWSLETTER <span class="highlight">SUBSCRIPTION</span></h2>
+                <p>
+                    Subscribe to our newsletter and be the first to know about new arrivals, exclusive offers, and style
+                    tips.
+                </p>
+                <form class="subscription-form" action="#" method="post">
+                    <input type="email" placeholder="Enter Your Email ..." required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </section>
+   
+
+    <!-- Footer Section -->
+     <footer class="site-footer">
+        <div class="footer-container-fluid px-0">
+            <div class="footer-row mx-0">
+                <div class="footer-column">
+                    <h3>CUSTOMER CARE</h3>
+                    <ul>
+                        <li>Shipping & Handling</li>
+                        <li>Exchange Policy</li>
+                        <li>Order Cancellation Policy</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                        <li>FAQ's</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>INFORMATION</h3>
+                    <ul>
+                        <li><a href="index.html" target="_blank" rel="noopener noreferrer">Home</a></li>
+                        <li><a href="about.html" target="_blank" rel="noopener noreferrer">About us</a></li>
+                        <li><a href="contact.html" target="_blank" rel="noopener noreferrer">Contact us</a></li>
+                        <li><a href="feedback.html" target="_blank" rel="noopener noreferrer">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 3rd Floor, Rimm Jhim Shopping Center, Suit No 308, A-486 Allama Shabbir Ahmed Usmani Rd, Block 6
+                    Gulshan-e-Iqbal,<br>
+                    Karachi,</li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:bkhmad12@gmail.com">bkhmad12@gmail.com</a>
+                        </li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:02134980576">02134980576</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                            class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                            class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                            class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                            class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <script>
+        const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    
+    // Hamburger animation
+    navToggle.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+    });
+});
+
+// Dropdown toggle for mobile
+const dropdown = document.querySelector('.dropdown');
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+if (dropdown && dropdownToggle) {
+    dropdownToggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        }
+    });
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (dropdown && !dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+    </script> -->
+    <script src="Assets/JavaScript/main-fixed.js"></script>
+     <script src="Assets/JavaScript/animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Brands | Gracious Garments</title>
+    <link rel="icon" href="Assets/Images/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/gobal-animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced Glassmorphism Effects */
+        .brands-hero {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(135deg, #a48374 0%, #302626 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .brands-hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .brands-hero-content p {
+            font-size: 1.8rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .brands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .brand-section {
+            margin-bottom: 5rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: slideInUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .brand-section:nth-child(1) { animation-delay: 0.2s; }
+        .brand-section:nth-child(2) { animation-delay: 0.4s; }
+        .brand-section:nth-child(3) { animation-delay: 0.6s; }
+
+        .brand-section:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.2);
+        }
+
+        .brand-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 4rem;
+            background: linear-gradient(135deg, #a48374 0%, #302626 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-header.outfitters {
+            background: linear-gradient(135deg, #a48374 0%, #302626 100%);
+        }
+
+        .brand-header.sapphair {
+            background: linear-gradient(135deg, #a48374 0%, #302626 100%);
+        }
+
+        .brand-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            transition: all 0.4s ease;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .brand-video:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 55px rgba(0,0,0,0.3);
+        }
+
+        .brand-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .brand-info h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-info p {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .brand-collection {
+            padding: 4rem;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.7) 0%, rgba(233, 236, 239, 0.7) 100%);
+            backdrop-filter: blur(10px);
+        }
+        .brand-collection h3{
+            font-size: 2.5rem;
+            text-align: center;
+            color: #302626;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .collection-item {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+        }
+
+        .collection-item:hover {
+            transform: scale(1.1) translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .collection-item img {
+            width: 100%;
+            height:550px;
+            object-fit: cover;
+            transition:  0.5s ease;
+            /* filter: brightness(1.1) contrast(1.1) saturate(1.1); */
+        }
+
+        .collection-item:hover img {
+            transform: scale(1.1);
+            /* filter: brightness(1.3) contrast(1.2) saturate(1.2); */
+        }
+
+        .collection-item-info {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            text-align: center;
+        }
+
+        .collection-item-info h4 {
+            color: #302626;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .collection-item-info p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-tag {
+            background: #302626;
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background:#a48374;
+            border-radius: 30px;
+            border: 2px solid #302626;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .price-tag:hover {
+            background: #a48374;
+            transform: scale(1.05);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.3rem 2.8rem;
+            background: #302626;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px #a48374;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #a48374;
+            color: white;
+            transition: left 0.4s ease;
+        }
+
+        .cta-button:hover {
+            /* transform: translateY(-5px) scale(1.08); */
+            box-shadow: 0 15px 35px #a48374;
+        }
+
+        .cta-button:hover {
+            left: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .brand-header {
+                grid-template-columns: 1fr;
+                padding: 2.5rem;
+            }
+            
+            .brands-hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .brands-hero-content p {
+                font-size: 1.5rem;
+            }
+            
+            .collection-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Additional sparkle effects */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: sparkle 3s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Gracious Garments</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shop.html" class="nav-link">Shop</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="brand.html" class="nav-link dropdown-toggle">Brand</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="outfitters.html" class="dropdown-link">Outfitters</a></li>
+                            <li><a href="ethnic.html" class="dropdown-link">Ethnic</a></li>
+                            <li><a href="sapphire.html" class="dropdown-link">Sapphire</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="compar.html" class="nav-link">Compare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact Us</a>
+                    </li>
+                     <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="brands-hero">
+        <div class="brands-hero-content">
+            <h1>Our Premium Brands</h1>
+            <p>Discover the finest fashion from Pakistan's leading clothing brands</p>
+        </div>
+    </section>
+
+    <!-- Brands Container -->
+    <div class="brands-container">
+        
+        <!-- Outfitters Brand Section -->
+        <section class="brand-section">
+            <div class="brand-header outfitters">
+                <div class="brand-video">
+                    <iframe src="Assets/brands videos/RESORT EDITION _ SUMMER '25.mp4"autoplay muted loop playsinline 
+                            title="Outfitters Collection 2024" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture ;muted" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="brand-info">
+                    <h2>Outfitters</h2>
+                    <p>Outfitters is Pakistan's leading fashion brand known for its contemporary and trendy clothing. Established with a vision to provide high-quality fashion at affordable prices, Outfitters has become synonymous with style and comfort.</p>
+                    <a href="outfitters.html" class="cta-button">Explore Collection</a>
+                </div>
+            </div>
+            
+            <div class="brand-collection">
+                <h3>Featured Collection</h3>
+                <div class="collection-grid">
+                    <div class="collection-item">
+                        <img src="Assets/Images/outfitters/mens collections/card 1 fornt.png" alt="Slogan T-Shirt">
+                        <div class="collection-item-info">
+                            <h4>Slogan T-Shirt</h4>
+                            <p>Add a splash of fun to your wardrobe with this comfortable slogan tee</p>
+                            <span class="price-tag">PKR 1,990</span>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <img src="Assets/Images/outfitters/womens collection/card 1 fornt.png" alt="Super Cropped T-Shirt">
+                        <div class="collection-item-info">
+                            <h4>Super Cropped Basic T-Shirt</h4>
+                            <p>Fun twist to your basics with this super cropped boxy fit tee</p>
+                            <span class="price-tag">PKR 1,490</span>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <img src="Assets/Images/outfitters/mens collections/card 2 fornt.png" alt="Straight Jeans">
+                        <div class="collection-item-info">
+                            <h4>Straight Jeans</h4>
+                            <p>Classic straight fit jeans perfect for any casual occasion</p>
+                            <span class="price-tag">PKR 3,190</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ethnic Brand Section -->
+        <section class="brand-section">
+            <div class="brand-header">
+                <div class="brand-info">
+                    <h2>Ethnic</h2>
+                    <p>Ethnic by Outfitters celebrates the rich cultural heritage of Pakistan through contemporary ethnic wear. Specializing in embroidered and printed suits, Ethnic offers both stitched and unstitched collections.</p>
+                    <a href="ethnic.html" class="cta-button">Explore Collection</a>
+                </div>
+                <div class="brand-video">
+                    <iframe src="Assets/brands videos/Boutique Summer Collection  SS 24.mp4" 
+                            title="Ethnic Collection 2024" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="brand-collection">
+                <h3>Featured Collection</h3>
+                <div class="collection-grid">
+                    <div class="collection-item">
+                        <img src="Assets/Images/ethnic/card 1 fornt.png" alt="Embroidered Suit">
+                        <div class="collection-item-info">
+                            <h4>Embroidered Suit</h4>
+                            <p>Artistic grandeur with stunning embroidered off-white suit</p>
+                            <span class="price-tag">PKR 12,990</span>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <img src="Assets/Images/ethnic/card 2 fornt.png" alt="Embroidered Suit">
+                        <div class="collection-item-info">
+                            <h4>Embroidered Suit</h4>
+                            <p>Grace and artistry in beautiful light pink embroidered suit</p>
+                            <span class="price-tag">PKR 15,990</span>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <img src="Assets/Images/ethnic/card 3 fornt.png" alt="Embroidered Suit">
+                        <div class="collection-item-info">
+                            <h4>Embroidered Suit</h4>
+                            <p>Elegant pale yellow unstitched 3-piece embroidered suit</p>
+                            <span class="price-tag">PKR 8,190</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sapphair Brand Section -->
+        <section class="brand-section">
+            <div class="brand-header sapphair">
+                <div class="brand-video">
+                    <iframe src="Assets/brands videos/SAPPHIRE MENSWEAR.mp4"
+                            title="Sapphire Collection 2024" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="brand-info">
+                    <h2>Sapphair</h2>
+                    <p>Sapphire is Pakistan's premium fashion brand offering luxury pret, unstitched fabrics, and accessories. Known for its exquisite craftsmanship and attention to detail, Sapphire brings international fashion trends to Pakistani wardrobes.</p>
+                    <a href="sapphire.html" class="cta-button">Explore Collection</a>
+                </div>
+            </div>
+            
+            <div class="brand-collection">
+                <h3>Featured Collection</h3>
+                <div class="collection-grid">
+                    <div class="collection-item">
+                        <img src="Assets/Images/sapphair/womens collections/card 1 fornt.png" alt="Embroidered Raw Silk Suit">
+                        <div class="collection-item-info">
+                            <h4>Embroidered Raw Silk Suit</h4>
+                            <p>Luxury pink embroidered viscose raw silk 3-piece suit</p>
+                            <span class="price-tag">PKR 20,990</span>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <img src="Assets/Images/sapphair/mens collection/card 2 fornt.png" alt="Cotton Suit">
+                        <div class="collection-item-info">
+                            <h4>Cotton Suit</h4>
+                            <p>Classic grey two-piece cotton suit for men</p>
+                            <span class="price-tag">PKR 2,490</span>
+                        </div>
+                    </div>
+                    <div class="collection-item">
+                        <img src="Assets/Images/sapphair/womens collections/card 3 fornt.png" alt="Embroidered Cotton Suit">
+                        <div class="collection-item-info">
+                            <h4>Embroidered Cotton Suit</h4>
+                            <p>Light peach embroidered 3-piece unstitched ensemble</p>
+                            <span class="price-tag">PKR 8,590</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container-fluid px-0">
+            <div class="footer-row mx-0">
+                <div class="footer-column">
+                    <h3>CUSTOMER CARE</h3>
+                    <ul>
+                        <li>Shipping & Handling</li>
+                        <li>Exchange Policy</li>
+                        <li>Order Cancellation Policy</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                        <li>FAQ's</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>INFORMATION</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>3rd Floor, Rimm Jhim Shopping Center, Suit No 308, A-486 Allama Shabbir Ahmed Usmani Rd, Block 6 Gulshan-e-Iqbal, Karachi</li>
+                        <li><a href="mailto:bkhmad12@gmail.com">bkhmad12@gmail.com</a></li>
+                        <li><a href="tel:02134980576">02134980576</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="Assets/JavaScript/main-fixed.js"> </script>
+    <script src="Assets/JavaScript/animation.js"></script>
+    
+</body>
+</html>

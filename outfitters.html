@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outfitters | Gracious Garments</title>
+  <link rel="icon" href="Assets/Images/favicon-32x32.png" type="image/png">
+  <link rel="stylesheet" href="Assets/CSS/outfitters.css">
+  <link rel="stylesheet" href="Assets/CSS/style.css">
+  <link rel="stylesheet" href="Assets/CSS/gobal-animation.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navbar (same as your site) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">Gracious Garments</a>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+          <li class="nav-item dropdown">
+            <a href="brand.html" class="nav-link dropdown-toggle">Brand</a>
+            <ul class="dropdown-menu">
+              <li><a href="outfitters.html" class="dropdown-link">Outfitters</a></li>
+              <li><a href="ethnic.html" class="dropdown-link">Ethnic</a></li>
+              <li><a href="sapphire.html" class="dropdown-link active">Sapphire</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="compar.html" class="nav-link">Compare</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="outfitter-hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Outfitter Collection</h1>
+        <p>Trendy printed top paired with slim-fit jeans.</p>
+      </div>
+    </div>
+    <div class="hero-images">
+      <!-- replace the banner image with your real file -->
+      <img src="Assets/Images/outfitters/outfitter banner (1).png" alt="outfitter banner">
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="women">Women</button>
+    <button class="filter-btn" data-category="men">Men</button>
+  </div>
+
+
+  <section class="outfitter-cards-section">
+    <div class="outfitter-cards-grid">
+      <!-- Women 1 -->
+      <div class="outfitter-card" data-type="women" data-index="0">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/womens collection/card 1 fornt.png" alt="Super Cropped Basic T-Shirt">
+                   
+
+        </div>
+        <div class="card-info">
+          <h3>Super Cropped Basic T-Shirt</h3>
+          <p class="price">PKR 1,490</p>
+          <p class="desc-short">This super cropped boxy fit T-Shirt brings a fun twist to your basics!</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Women 2 -->
+      <div class="outfitter-card" data-type="women" data-index="1">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/womens collection/card 2 fornt.png" alt="Graphic T-Shirt">
+
+        </div>
+        <div class="card-info">
+          <h3>Graphic T-Shirt</h3>
+          <p class="price"> PKR 1,690</p>
+          <p class="desc-short">Get ready to turn heads with this Graphic T-Shirt!</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Women 3 -->
+      <div class="outfitter-card" data-type="women" data-index="2">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/womens collection/card 3 fornt.png" alt="">
+
+        </div>
+        <div class="card-info">
+          <h3>Embroidered Cropped Denim Jacket</h3>
+          <p class="price">PKR 4,490</p>
+          <p class="desc-short">Rock a fun and playful look with our Embroidered Cropped Denim Jacket. </p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Women 4 -->
+      <div class="outfitter-card" data-type="women" data-index="3">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/womens collection/card 4 fornt.png" alt="Kimono Denim Midi Shirt">
+
+        </div>
+        <div class="card-info">
+          <h3> Kimono Denim Midi Shirt</h3>
+          <p class="price">PKR 3,990</p>
+          <p class="desc-short">Unleash your playful side with our Kimono Denim Midi Shirt.</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Women 5 -->
+      <div class="outfitter-card" data-type="women" data-index="4">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/womens collection/card 5 fornt.png" alt="Wide Leg Jeans">
+
+        </div>
+        <div class="card-info">
+          <h3>Wide Leg Jeans</h3>
+          <p class="price">PKR 4,290</p>
+          <p class="desc-short">Step out in style with these Wide Leg Jeans designed for comfort and flair.</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Women 6 -->
+      <div class="outfitter-card" data-type="women" data-index="5">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/womens collection/card 6 fornt.png" alt="Cropped Boxy Activewear T-shirt">
+
+        </div>
+        <div class="card-info">
+          <h3>Cropped Boxy Activewear T-shirt</h3>
+          <p class="price">PKR 1,490</p>
+          <p class="desc-short">Show off your style with our Cropped Boxy T-shirt!</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Men 1 -->
+      <div class="outitter-card" data-type="men" data-index="6">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/mens collections/card 1 fornt.png" alt="Slogan T-Shirt">
+
+        </div>
+        <div class="card-info">
+          <h3>Slogan T-Shirt</h3>
+          <p class="price">PKR 1,990</p>
+          <p class="desc-short">Add a splash of fun to your wardrobe with this Slogan T-Shirt.</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Men 2 -->
+      <div class="outfitter-card" data-type="men" data-index="7">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/mens collections/card 2 fornt.png" alt="Straight Jeans">
+        </div>
+        <div class="card-info">
+          <h3>Straight Jeans</h3>
+          <p class="price">PKR 3,190</p>
+          <p class="desc-short">Get ready to rock in these Straight Jeans!</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Men 3 -->
+      <div class="outfitter-card" data-type="men" data-index="8">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/mens collections/card 3 fornt.png" alt="Printed Resort Collar Shirt">
+        </div>
+        <div class="card-info">
+          <h3>Printed Resort Collar Shirt</h3>
+          <p class="price">PKR 3,090</p>
+          <p class="desc-short">Add a splash of fun to your wardrobe with this Printed Resort Collar Shirt.</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Men 4 -->
+      <div class="outfitter-card" data-type="men" data-index="9">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/mens collections/card 4 fornt.png" alt=" Basic Hoodie">
+        </div>
+        <div class="card-info">
+          <h3> Basic Hoodie</h3>
+          <p class="price">PKR 2,490</p>
+          <p class="desc-short"> Stay comfortably trendy with our Basic Hoodie.</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Men 5 -->
+      <div class="outfitter-card" data-type="men" data-index="10">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/mens collections/card 5 fornt.png" alt="Slogan Print Sweatshirt">
+        </div>
+        <div class="card-info">
+          <h3>Slogan Print Sweatshirt</h3>
+          <p class="price"> PKR 3,990</p>
+          <p class="desc-short">Stand out in style with our Slogan Print Sweatshirt!</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+
+      <!-- Men 6 -->
+      <div class="outfitter-card" data-type="men" data-index="11">
+        <div class="card-img">
+          <img src="Assets/Images/outfitters/mens collections/card 6 fornt.png" alt="Loose Textured Shorts">
+
+        </div>
+        <div class="card-info">
+          <h3>Loose Textured Shorts</h3>
+          <p class="price">PKR 3,490</p>
+          <p class="desc-short">Stay cool and comfy in these Loose Textured Shorts crafted from soft cotton.</p>
+          <button class="view-details-btn">View Details</button>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Modal -->
+  <div class="product-modal" id="productModal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <div class="modal-body">
+        <div class="modal-gallery" id="modalGallery"></div>
+        <div class="modal-details">
+          <h2 id="modalTitle"></h2>
+          <p id="modalPrice"></p>
+          <p id="modalDesc"></p>
+          <div id="modalSpecs"></div>
+          <div class="product-size">
+            <label for="productSize">Select Size:</label>
+            <select id="productSize" required>
+              <option value="">Choose Size</option>
+              <option value="S">Small (S)</option>
+              <option value="M">Medium (M)</option>
+              <option value="L">Large (L)</option>
+              <option value="XL">Extra Large (XL)</option>
+              <option value="Free">Free Size</option>
+            </select>
+          </div>
+          <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 1rem; margin-top: 0;">Add to
+            Cart</button>
+          <div class="modal-reviews-section">
+            <h3>Reviews</h3>
+            <ul class="reviews-list" id="reviewsList"></ul>
+            <form class="review-form" id="reviewForm">
+              <h4>Leave a Review</h4>
+              <input type="text" id="reviewName" placeholder="Your name" required>
+              <textarea id="reviewText" placeholder="Your review" required></textarea>
+              <select id="reviewRating" required>
+                <option value="">Rating</option>
+                <option value="5">★★★★★</option>
+                <option value="4">★★★★☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="1">★☆☆☆☆</option>
+              </select>
+              <button type="submit">Submit Review</button>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (copied from your Ethnic) -->
+  <footer class="site-footer">
+    <div class="footer-container-fluid px-0">
+      <div class="footer-row mx-0">
+        <div class="footer-column">
+          <h3>CUSTOMER CARE</h3>
+          <ul>
+            <li>Shipping & Handling</li>
+            <li>Exchange Policy</li>
+            <li>Order Cancellation Policy</li>
+            <li>Privacy Policy</li>
+            <li>Terms of Use</li>
+            <li>FAQ's</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>INFORMATION</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> 3rd Floor, Rimm Jhim Shopping Center, Suit No 308...</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:bkhmad12@gmail.com">bkhmad12@gmail.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:02134980576">02134980576</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="Assets/JavaScript/outfitters.js"></script>
+  <script src="Assets/JavaScript/main-fixed.js"></script>
+  <script src="Assets/JavaScript/animation.js"></script>
+  
+</body>
+
+</html>
