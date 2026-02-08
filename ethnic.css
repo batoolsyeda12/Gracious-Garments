@@ -1,0 +1,691 @@
+
+/* Navbar (reuse your site styles if needed) */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+/* Hero Section - Fixed Responsive Design */
+
+.ethnic-hero {
+    margin-bottom: 0;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: url('Assets/Images/ethnic/ehnic banner.png') center center/cover no-repeat;
+    animation: fadeInUp 1s ease-out;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(34, 25, 12, 0.44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    padding: 2.5rem 1rem;
+    animation: heroSlideUp 1.5s ease-out;
+    max-width: 90%;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    animation: slideInLeft 1s ease-out 0.8s both;
+    color: #eee;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin-top: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1.5s ease-out 0.5s both;
+}
+
+/* Responsive Hero Section */
+@media screen and (max-width: 767px) {
+    .ethnic-hero {
+        min-height: 60vh;
+        background-attachment: scroll;
+        background-position: center center;
+    }
+    
+    .hero-content {
+        padding: 1.5rem 1rem;
+        max-width: 95%;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+    
+    .hero-content p {
+        font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .ethnic-hero {
+        min-height: 70vh;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(2.2rem, 6vw, 3.5rem);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .ethnic-hero {
+        min-height: 100vh;
+    }
+    
+    .hero-content {
+        max-width: 80%;
+    }
+}
+
+
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 2.3rem 0 1.5rem 0;
+}
+
+.filter-btn {
+    margin-top: 50px;
+    padding: .6rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    background: var(--primary);
+    color: var(--accent);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    box-shadow: 0 1px 6px #a48374;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.filter-btn.active,
+.filter-btn:focus {
+    background: #e3dec6;
+    color: #302626;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Cards Grid */
+.ethnic-cards-section {
+    max-width: 1200px;
+    margin-top: 50px ;
+    margin-left: 30px;
+    padding: 0 1rem 2rem 1rem;
+}
+
+.ethnic-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.ethnic-card {
+    background: whitesmoke;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 20px white;
+    overflow: hidden;
+    transition: transform .33s cubic-bezier(.21, 1.29, .66, 1), box-shadow .33s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    animation: cardFadeIn .8s cubic-bezier(.21, 1.29, .66, 1);
+    position: relative;
+}
+
+
+.ethnic-card:hover {
+   
+    box-shadow: 0 12px 32px #a48374;
+}
+
+.card-img {
+    width: 100%;
+    height: 500%;
+    overflow: hidden;
+    background: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img img {
+    width: 100%;
+    height: 450;
+    object-fit: cover;
+    border-radius: .5rem;
+    transition: transform .4s cubic-bezier(.21, 1.29, .66, 1);
+}
+
+.ethnic-card:hover .card-img img {
+    transform: scale(1.08) rotate(2deg);
+}
+
+.card-info {
+    padding: 1.3rem 1.3rem 1rem 1.3rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #222;
+}
+
+.card-info .price {
+    color: #a48374;
+    font-weight: bold;
+}
+
+.card-info .desc-short {
+    color: #5b4c38;
+    font-size: .98rem;
+}
+
+.badge {
+    display: inline-block;
+    font-size: .85rem;
+    padding: .22rem 1rem;
+    border-radius: 1rem;
+    margin-top: .3rem;
+    color: #8d2f2f;
+    font-weight: 600;
+}
+
+.badge.stitched {
+    color: #30497c;
+}
+
+.badge.unstitched {
+    color: #8d2f2f;
+}
+
+.view-details-btn {
+    margin-top: auto;
+    background:#302626;
+    color: #e3dec6;
+    font-weight: 600;
+    border: none;
+    border-radius: 1rem;
+    padding: .5rem 1.7rem;
+    box-shadow: 0 2px 7px #f5e8de;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+
+.view-details-btn:hover {
+    background: #a48374;
+    color:#fff ;
+}
+
+/* Modal */
+.product-modal {
+    display: none;
+    position: fixed;
+    z-index: 1200;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+    overflow: auto;
+}
+
+.product-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 1.5rem;
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 10px 40px #58402a44;
+    animation: modalPop .4s cubic-bezier(.21, 1.29, .66, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@keyframes modalPop {
+    0% {
+        transform: scale(.85);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-body {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.modal-gallery {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    min-width: 180px;
+    max-width: 280px;
+}
+
+.modal-gallery img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px #ecdccc;
+    object-fit: cover;
+}
+
+.modal-details {
+    flex: 2;
+    padding-right: .5rem;
+}
+
+.modal-details h2 {
+    color: #e3dec6;
+}
+
+.modal-details p {
+    color: #302626;
+}
+
+#modalSpecs {
+    font-size: .98rem;
+    margin: .6rem 0 1.2rem 0;
+}
+
+/* Close button */
+.product-modal .close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+    font-size: 2.1rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color .2s;
+    z-index: 10;
+}
+
+.product-modal .close:hover {
+    color: #a48374;
+}
+
+/* Reviews */
+.modal-reviews-section {
+    margin-top: 1.1rem;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem 1.2rem;
+}
+
+.reviews-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.reviews-list li {
+    margin-bottom: .7rem;
+    background: #fffefa;
+    padding: .6rem 1.2rem;
+    border-radius: .7rem;
+    box-shadow: 0 2px 8px #eee8e2;
+}
+
+.reviews-list .review-author {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.reviews-list .review-rating {
+    color: #e6a42f;
+    margin-left: .25rem;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: .5rem;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+    border: 1.5px solid #e3dec6;
+    border-radius: .5rem;
+    padding: .55rem .8rem;
+    font-size: 1rem;
+    width: 100%;
+    background: #fff;
+    resize: none;
+}
+
+.review-form button {
+    align-self: flex-end;
+    background: #302626;
+    color: #fff;
+    border: none;
+    border-radius: .6rem;
+    padding: .4rem 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 1px 8px #f5e8de;
+    margin-top: .4rem;
+}
+
+.review-form button:hover {
+    background: #a48374;
+    color: #fff;
+}
+
+/* Mobile Responsive - max-width: 767px */
+@media screen and (max-width: 767px) {
+    .ethnic-hero {
+        height: 50vh;
+        padding-right: 0;
+        background-attachment: scroll;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .ethnic-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .ethnic-card {
+        margin: 0 0.5rem;
+    }
+}
+
+/* Tablet - min-width: 768px and max-width: 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .ethnic-hero {
+        height: 70vh;
+        padding-right: 0;
+    }
+    
+    .ethnic-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Desktop - min-width: 1024px */
+@media screen and (min-width: 1024px) {
+    .ethnic-hero {
+        height: 1000px;
+        padding-right: 0;
+    }
+    
+    .ethnic-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet Devices - min-width: 768px and max-width: 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Hero Section */
+    .ethnic-hero {
+        height: 70vh;
+        padding-right: 0;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(2.2rem, 6vw, 3rem);
+    }
+    
+    /* Cards Grid */
+    .ethnic-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+    }
+    
+    .ethnic-cards-section {
+        padding: 0 1rem;
+    }
+}
+
+/* Large Tablets and Small Laptops - min-width: 1024px and max-width: 1199px */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    .ethnic-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.8rem;
+    }
+}
+
+/* Desktop - min-width: 1200px */
+@media screen and (min-width: 1200px) {
+    .ethnic-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Extra Large Screens - min-width: 1400px */
+@media screen and (min-width: 1400px) {
+    .ethnic-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1400px;
+    }
+}
+
+/* Utility Classes for Responsive Spacing */
+@media screen and (max-width: 767px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+/* Responsive Typography */
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Navigation */
+@media screen and (max-width: 767px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+}
+
+/* Responsive Footer */
+@media screen and (max-width: 767px) {
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-column {
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .footer-row {
+        flex-wrap: wrap;
+    }
+    
+    .footer-column {
+        flex: 0 0 50%;
+        margin-bottom: 2rem;
+    }
+}
